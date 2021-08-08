@@ -21,17 +21,9 @@ public class Health : MonoBehaviour
         }
     }
 
-    private void TakeDamage(float dmg)
+    public void TakeDamage(float dmg)
     {
         currentHealth -= dmg;
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Weapon"))
-        {
-            GiveDmg echo = other.GetComponent<GiveDmg>();
-            TakeDamage(echo.dmg);
-        }
-    }
+    
 }
