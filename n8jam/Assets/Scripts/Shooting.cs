@@ -8,13 +8,18 @@ public class Shooting : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject bulletPrefab;
 
+    [SerializeField] private float cooldown;
+    private bool _canShoot = true;
+
   
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && _canShoot)
         {
             Shoot();
+            _canShoot = false;
+            StartCoroutine(Cooldown());
         }
     }
 
@@ -23,5 +28,10 @@ public class Shooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 
-    
+    IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(cooldown);
+        _canShoot = true;
+
+    }
 }

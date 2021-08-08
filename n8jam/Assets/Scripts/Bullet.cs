@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -8,6 +10,8 @@ public class Bullet : MonoBehaviour
     public float dmg;
     [SerializeField] private float speed = 10f;
     [SerializeField] private Rigidbody2D rb;
+
+    [SerializeField] private ParticleSystem explosion;
 
     private void Start()
     {
@@ -20,9 +24,15 @@ public class Bullet : MonoBehaviour
         {
             Health hp = other.gameObject.GetComponent<Health>();
             hp.TakeDamage(dmg);
-            
-            Destroy(gameObject);
-            
         }
+
+        ParticleSystem explode = Instantiate(explosion, transform.position, quaternion.identity);
+        explode.gameObject.AddComponent<ParticleSystemActivator>();
+        Destroy(gameObject);
+
     }
+
+   
+    
+    
 }
