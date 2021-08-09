@@ -8,6 +8,8 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
+
+    public bool _isDead = false;
     void Start()
     {
         currentHealth = maxHealth;
@@ -17,7 +19,15 @@ public class Health : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            Destroy(this.gameObject);
+            if (gameObject.name == "Player")
+            {
+                _isDead = true;
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
+            
         }
     }
 

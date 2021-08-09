@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.collider.gameObject.CompareTag("Enemy"))
+        if (other.collider.gameObject.GetComponent<Health>() != null)
         {
             Health hp = other.gameObject.GetComponent<Health>();
             hp.TakeDamage(dmg);

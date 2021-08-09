@@ -208,6 +208,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 40
-  speed: 10
+  speed: 20
   rb: {fileID: 592655958840529101}
   explosion: {fileID: 6398923153201798353, guid: 445d5cef93a3b8f4482b219825ec0f45, type: 3}

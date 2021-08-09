@@ -91,7 +91,6 @@ public class EnemyAI : MonoBehaviour
 
     private void Attacking()
     {
-        Debug.Log("attack!");
 
         if (player.transform.position.x > transform.position.x)
         {
