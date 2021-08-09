@@ -32,6 +32,5 @@ public class Shooting : MonoBehaviour
     {
         yield return new WaitForSeconds(cooldown);
         _canShoot = true;
-
     }
 }

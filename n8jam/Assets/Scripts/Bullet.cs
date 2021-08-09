@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
         }
 
         ParticleSystem explode = Instantiate(explosion, transform.position, quaternion.identity);
-        explode.gameObject.AddComponent<ParticleSystemActivator>();
+        explode.transform.parent = null;
         Destroy(gameObject);
 
     }

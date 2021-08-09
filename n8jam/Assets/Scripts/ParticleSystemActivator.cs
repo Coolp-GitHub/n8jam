@@ -6,7 +6,7 @@ using UnityEngine;
 public class ParticleSystemActivator : MonoBehaviour
 {
     private ParticleSystem _explode;
-    private float cooldown = .1f;
+    [SerializeField] private float cooldown = .1f;
 
     private void Update()
     {
