@@ -25,6 +25,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         startPos = transform.position;
+        player = GameObject.Find("Player");
     }
 
    
@@ -61,10 +62,7 @@ public class EnemyAI : MonoBehaviour
         else
         {
             _state = State.Patrolling;
-
         }
-
-        
 
     }
 
@@ -84,7 +82,7 @@ public class EnemyAI : MonoBehaviour
             else
             {
                 transform.eulerAngles = new Vector3(0, 0, 0);
-                _moveRight = false;
+                _moveRight = true;
             }
         }
     }
@@ -140,7 +138,7 @@ public class EnemyAI : MonoBehaviour
 
     IEnumerator Cooldown()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         _canShoot = true;
     }
 }
