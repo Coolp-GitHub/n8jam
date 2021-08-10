@@ -6,10 +6,12 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     [SerializeField] private Transform firePoint;
-    [SerializeField] private GameObject bulletPrefab;
-
+    public GameObject bulletPrefab;
+    
     [SerializeField] private float cooldown;
     private bool _canShoot = true;
+
+  
 
   
 
@@ -32,5 +34,16 @@ public class Shooting : MonoBehaviour
     {
         yield return new WaitForSeconds(cooldown);
         _canShoot = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider.gameObject.CompareTag("PowerUp"))
+        {
+            switch ()
+            {
+                
+            }
+        }
     }
 }

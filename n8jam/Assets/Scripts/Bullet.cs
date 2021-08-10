@@ -8,7 +8,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float dmg;
-    [SerializeField] private float speed = 10f;
+    public float speed = 10f;
     [SerializeField] private Rigidbody2D rb;
 
     [SerializeField] private ParticleSystem explosion;
@@ -29,7 +29,6 @@ public class Bullet : MonoBehaviour
         ParticleSystem explode = Instantiate(explosion, transform.position, quaternion.identity);
         explode.transform.parent = null;
         Destroy(gameObject);
-
     }
 
    
